@@ -1,12 +1,12 @@
 const SUPABASE_URL = "https://eljvjhuiogdjvcyxczug.supabase.co";
-const SUPABASE_KEY = "PASTE_YOUR_ANON_KEY";
+const SUPABASE_KEY = "PASTE_KEY";
 
 const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 let user;
 let balance = 0;
 
-/* INIT USER */
+/* INIT */
 async function initUser(){
 
   let uid = localStorage.getItem("uid");
@@ -77,7 +77,7 @@ async function submitTask(amount,id){
     status:"pending"
   }]);
 
-  alert("Submitted");
+  alert("Task Submitted");
 }
 
 /* ADMIN */
@@ -91,6 +91,8 @@ async function loadAdmin(){
   let box = document.getElementById("adminList");
   box.innerHTML="";
 
+  if(!data) return;
+
   data.forEach(t=>{
 
     let div=document.createElement("div");
@@ -103,7 +105,7 @@ async function loadAdmin(){
   });
 }
 
-async function approve(id, reward){
+async function approve(id,reward){
 
   await supabase
     .from("task_submissions")
@@ -118,11 +120,14 @@ async function approve(id, reward){
   alert("Approved");
 }
 
-/* PAGE SWITCH */
-function show(page){
+/* FIXED PAGE SWITCH */
+function showPage(page){
 
-  ["home","tasks","referral","admin"].forEach(p=>{
-    document.getElementById(p).style.display="none";
+  let pages=["home","tasks","packages","referral","admin"];
+
+  pages.forEach(p=>{
+    let el=document.getElementById(p);
+    if(el) el.style.display="none";
   });
 
   document.getElementById(page).style.display="block";
@@ -133,5 +138,5 @@ function show(page){
 /* START */
 document.addEventListener("DOMContentLoaded",()=>{
   initUser();
-  show("home");
+  showPage("home");
 });
