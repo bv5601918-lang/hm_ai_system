@@ -22,7 +22,6 @@ body{
 
 button{
   padding:10px;
-  margin:5px;
   background:#2563eb;
   color:white;
   border:none;
@@ -36,6 +35,9 @@ input, select{
   width:80%;
 }
 
-.box{
-  margin-top:20px;
+.card{
+  background:#1e293b;
+  margin:10px;
+  padding:10px;
+  border-radius:10px;
 }
