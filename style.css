@@ -18,14 +18,12 @@ body{
 
 button{
   padding:10px;
-  margin:5px;
   background:#2563eb;
   color:white;
   border:none;
   border-radius:8px;
 }
 
-input{
-  display:block;
-  margin:10px auto;
+.page{
+  padding-bottom:80px;
 }
