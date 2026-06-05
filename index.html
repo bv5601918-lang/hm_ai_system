@@ -4,18 +4,19 @@
   <title>HM BD Earning</title>
 
   <link rel="stylesheet" href="style.css">
-
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
 
-<div id="home">
+<!-- HOME -->
+<div id="home" class="page">
   <h2>🏠 Home</h2>
   <p id="balance">💰 Balance: ৳0</p>
 </div>
 
-<div id="tasks" style="display:none;">
+<!-- TASKS -->
+<div id="tasks" class="page" style="display:none;">
   <h2>📋 Tasks</h2>
 
   <input type="file" id="t1">
@@ -25,24 +26,34 @@
   <button onclick="submitTask(2,'t2')">Task 2 (+2)</button>
 </div>
 
-<div id="referral" style="display:none;">
+<!-- PACKAGES -->
+<div id="packages" class="page" style="display:none;">
+  <h2>📦 Packages</h2>
+  <p>No packages yet</p>
+</div>
+
+<!-- REFERRAL -->
+<div id="referral" class="page" style="display:none;">
   <h2>🤝 Referral</h2>
   <h3 id="refCode"></h3>
 </div>
 
-<div id="admin" style="display:none;">
-  <h2>🛠 Admin</h2>
+<!-- ADMIN -->
+<div id="admin" class="page" style="display:none;">
+  <h2>🛠 Admin Panel</h2>
   <div id="adminList"></div>
 </div>
 
+<!-- MENU -->
 <div class="menu">
-  <button onclick="show('home')">Home</button>
-  <button onclick="show('tasks')">Tasks</button>
-  <button onclick="show('referral')">Referral</button>
-  <button onclick="show('admin')">Admin</button>
+  <button onclick="showPage('home')">Home</button>
+  <button onclick="showPage('tasks')">Tasks</button>
+  <button onclick="showPage('packages')">Packages</button>
+  <button onclick="showPage('referral')">Referral</button>
+  <button onclick="showPage('admin')">Admin</button>
 </div>
 
 <script src="app.js"></script>
 
 </body>
-</html>
+    </html>
