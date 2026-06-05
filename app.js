@@ -1,30 +1,34 @@
 let balance = 0;
 
+// PAGE SWITCH FIX
 function showPage(page) {
-  let pages = ["home","tasks","packages","menu"];
 
-  pages.forEach(p => {
-    document.getElementById(p).style.display = "none";
-  });
+  let pages = ["home", "tasks", "packages", "menu"];
+
+  for (let i = 0; i < pages.length; i++) {
+    document.getElementById(pages[i]).style.display = "none";
+  }
 
   document.getElementById(page).style.display = "block";
 }
 
+// ADS SYSTEM
 function watchAd() {
   balance += 0.50;
 
   document.getElementById("balanceText").innerText =
     "💰 Balance: ৳" + balance.toFixed(2);
 
-  alert("Earned ৳0.50");
+  alert("🎉 Earned ৳0.50");
 }
 
-function submitTaskWithImage(amount, inputId) {
+// TASK SYSTEM (WITH IMAGE CHECK)
+function submitTask(amount, inputId) {
 
   let file = document.getElementById(inputId);
 
-  if (!file.files.length) {
-    alert("❌ Screenshot upload করুন");
+  if (!file || file.files.length === 0) {
+    alert("❌ Please upload screenshot first");
     return;
   }
 
@@ -36,6 +40,7 @@ function submitTaskWithImage(amount, inputId) {
   alert("✅ Task Completed +৳" + amount);
 }
 
+// START PAGE FIX
 document.addEventListener("DOMContentLoaded", function () {
   showPage("home");
 });
