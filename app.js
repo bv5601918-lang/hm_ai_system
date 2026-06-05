@@ -1,14 +1,6 @@
 function show(page){
 
-  let pages=[
-    "home",
-    "tasks",
-    "packages",
-    "menu",
-    "deposit",
-    "withdraw",
-    "referral"
-  ];
+  let pages=["home","tasks","packages","menu","deposit","withdraw","referral"];
 
   pages.forEach(p=>{
     let el=document.getElementById(p);
@@ -16,6 +8,10 @@ function show(page){
   });
 
   document.getElementById(page).style.display="block";
+}
+
+function openBuy(){
+  document.getElementById("buyBox").style.display="block";
 }
 
 document.addEventListener("DOMContentLoaded",()=>{
