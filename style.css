@@ -1,12 +1,12 @@
-body {
+body{
   margin:0;
-  font-family: Arial;
+  font-family:Arial;
   background:#0f172a;
   color:white;
   text-align:center;
 }
 
-.menu {
+.menu{
   position:fixed;
   bottom:0;
   width:100%;
@@ -16,11 +16,16 @@ body {
   padding:10px;
 }
 
-button {
+button{
   padding:10px;
   margin:5px;
   background:#2563eb;
   color:white;
   border:none;
   border-radius:8px;
+}
+
+input{
+  display:block;
+  margin:10px auto;
 }
