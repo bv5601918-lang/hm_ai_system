@@ -4,39 +4,38 @@
   <title>HM BD Earning</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="app">
-
-  <h1>HM BD Earning</h1>
-
-  <div class="card">
-    💰 Balance<br>
-    <span id="balance">৳0.00</span>
+  <!-- HOME -->
+  <div id="home">
+    <h2>🏠 Home Page</h2>
+    <p>💰 Balance: ৳0.00</p>
   </div>
 
-  <button class="btn">🎥 Watch Ads (৳0.50)</button>
+  <!-- TASKS -->
+  <div id="tasks" style="display:none;">
+    <h2>📋 Tasks Page</h2>
+  </div>
 
+  <!-- PACKAGES -->
+  <div id="packages" style="display:none;">
+    <h2>📦 Packages Page</h2>
+  </div>
+
+  <!-- MENU -->
+  <div id="menu" style="display:none;">
+    <h2>☰ Menu Page</h2>
+  </div>
+
+  <!-- BOTTOM MENU -->
   <div class="menu">
-    <button>Home</button>
-    <button>Tasks</button>
-    <button>Packages</button>
-    <button>Menu</button>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('tasks')">Tasks</button>
+    <button onclick="showPage('packages')">Packages</button>
+    <button onclick="showPage('menu')">Menu</button>
   </div>
 
-</div>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
-<div id="home">Home Content</div>
-
-<div id="tasks" style="display:none;">Tasks Content</div>
-
-<div id="packages" style="display:none;">Packages Content</div>
-
-<div id="menu" style="display:none;">Menu Content</div>
-<button onclick="showPage('home')">Home</button>
-<button onclick="showPage('tasks')">Tasks</button>
-<button onclick="showPage('packages')">Packages</button>
-<button onclick="showPage('menu')">Menu</button>
