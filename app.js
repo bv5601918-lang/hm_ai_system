@@ -1,18 +1,13 @@
 let balance = 0;
 
-// প্রথমে Home show হবে (IMPORTANT FIX)
-document.addEventListener("DOMContentLoaded", function () {
-  showPage("home");
-});
-
-// PAGE SWITCH
+// SHOW PAGE (SAFE)
 function showPage(page) {
 
   let pages = ["home", "tasks", "packages", "menu"];
 
-  pages.forEach(p => {
-    document.getElementById(p).style.display = "none";
-  });
+  for (let i = 0; i < pages.length; i++) {
+    document.getElementById(pages[i]).style.display = "none";
+  }
 
   document.getElementById(page).style.display = "block";
 }
@@ -27,12 +22,17 @@ function watchAd() {
   alert("Earned ৳0.50");
 }
 
-// TASK
+// TASK SUBMIT
 function submitTask(amount) {
   balance += amount;
 
   document.getElementById("balanceText").innerText =
     "💰 Balance: ৳" + balance.toFixed(2);
 
-  alert("Task submitted +৳" + amount);
+  alert("Task completed +৳" + amount);
 }
+
+// AUTO OPEN HOME
+document.addEventListener("DOMContentLoaded", function () {
+  showPage("home");
+});
