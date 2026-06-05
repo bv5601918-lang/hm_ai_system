@@ -10,32 +10,44 @@
 <!-- HOME -->
 <div id="home" class="page">
   <h2>🏠 Home</h2>
-
   <p>👤 User: Demo</p>
   <p>💰 Balance: ৳0</p>
 
   <div class="box">
     <button onclick="show('deposit')">Deposit</button>
     <button onclick="show('withdraw')">Withdraw</button>
+    <button onclick="show('referral')">Referral</button>
+    <button onclick="show('tasks')">Tasks</button>
   </div>
 </div>
 
 <!-- TASKS -->
 <div id="tasks" class="page" style="display:none;">
-  <h2>📋 Tasks</h2>
-  <p>All tasks will appear here</p>
+  <h2>📋 Tasks (7)</h2>
+
+  <p>1. Join Telegram</p>
+  <p>2. Join Group</p>
+  <p>3. Register Site</p>
+  <p>4. WhatsApp Bind</p>
+  <p>5. Lite Earn</p>
+  <p>6. PlayTok</p>
+  <p>7. CashBazar</p>
 </div>
 
 <!-- PACKAGES -->
 <div id="packages" class="page" style="display:none;">
   <h2>📦 Packages</h2>
-  <p>Packages will appear here</p>
+
+  <div class="card">৳250 → ৳110/day (7 days)</div>
+  <div class="card">৳510 → ৳210/day (7 days)</div>
+  <div class="card">৳1000 → ৳400/day (7 days)</div>
+  <div class="card">৳2000 → ৳850/day (7 days)</div>
 </div>
 
 <!-- MAIN MENU -->
 <div id="menu" class="page" style="display:none;">
   <h2>☰ Main Menu</h2>
-  <p>User Settings / Info</p>
+  <p>Settings / Language / History</p>
 </div>
 
 <!-- DEPOSIT -->
@@ -54,7 +66,7 @@
 <div id="withdraw" class="page" style="display:none;">
   <h2>💸 Withdraw</h2>
 
-  <p>Minimum: ৳110</p>
+  <p>Min ৳110 | Max ৳10000</p>
 
   <select>
     <option>bKash</option>
@@ -67,15 +79,25 @@
   <button>Request Withdraw</button>
 </div>
 
-<!-- BOTTOM NAV (ONLY 4 BUTTONS) -->
+<!-- REFERRAL -->
+<div id="referral" class="page" style="display:none;">
+  <h2>🤝 Referral</h2>
+
+  <p>1 referral = ৳10</p>
+  <p>25 referrals = ৳500 bonus</p>
+
+  <h3>Code: REF12345</h3>
+</div>
+
+<!-- BOTTOM MENU (ONLY 4 BUTTONS) -->
 <div class="menu">
   <button onclick="show('home')">Home</button>
   <button onclick="show('tasks')">Tasks</button>
   <button onclick="show('packages')">Packages</button>
-  <button onclick="show('menu')">Main Menu</button>
+  <button onclick="show('menu')">Menu</button>
 </div>
 
 <script src="app.js"></script>
 
 </body>
-</html>
+    </html>
