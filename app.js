@@ -1,6 +1,13 @@
 function show(page){
 
-  let pages=["home","tasks","packages","referral","withdraw","deposit"];
+  let pages=[
+    "home",
+    "tasks",
+    "packages",
+    "menu",
+    "deposit",
+    "withdraw"
+  ];
 
   pages.forEach(p=>{
     let el=document.getElementById(p);
