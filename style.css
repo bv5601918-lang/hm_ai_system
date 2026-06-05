@@ -6,6 +6,10 @@ body{
   text-align:center;
 }
 
+.page{
+  padding-bottom:80px;
+}
+
 .menu{
   position:fixed;
   bottom:0;
@@ -18,12 +22,27 @@ body{
 
 button{
   padding:10px;
+  margin:5px;
   background:#2563eb;
   color:white;
   border:none;
   border-radius:8px;
 }
 
-.page{
-  padding-bottom:80px;
+input, select{
+  display:block;
+  margin:10px auto;
+  padding:8px;
+  width:80%;
+}
+
+.card{
+  background:#1e293b;
+  margin:10px;
+  padding:10px;
+  border-radius:10px;
+}
+
+.box{
+  margin-top:20px;
 }
