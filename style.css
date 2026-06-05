@@ -1,37 +1,26 @@
 body {
-  margin: 0;
+  margin:0;
   font-family: Arial;
-  background: #0f172a;
-  color: white;
-  text-align: center;
-}
-
-button {
-  padding: 10px;
-  margin: 5px;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 8px;
+  background:#0f172a;
+  color:white;
+  text-align:center;
 }
 
 .menu {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  background: #111827;
-  padding: 10px;
+  position:fixed;
+  bottom:0;
+  width:100%;
+  display:flex;
+  justify-content:space-around;
+  background:#111827;
+  padding:10px;
 }
 
-.task {
-  background: #1e293b;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-input[type="file"] {
-  margin-top: 5px;
+button {
+  padding:10px;
+  margin:5px;
+  background:#2563eb;
+  color:white;
+  border:none;
+  border-radius:8px;
 }
