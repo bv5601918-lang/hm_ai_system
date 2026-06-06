@@ -3,80 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI SYSTEM DASHBOARD</title>
+<title>AI SYSTEM</title>
 
 <style>
+*{
+    box-sizing:border-box;
+}
+
 body{
     margin:0;
     font-family:Arial;
-    background: radial-gradient(circle,#0f0f0f,#000);
+    background:linear-gradient(135deg,#000814,#001d3d);
     color:white;
-    text-align:center;
 }
 
 /* LOGIN */
 #loginBox{
     height:100vh;
+    width:100%;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    gap:10px;
+    gap:15px;
+}
+
+#loginBox h2{
+    color:#ffd60a;
+    font-size:28px;
+    letter-spacing:2px;
 }
 
 input{
-    padding:12px;
-    width:250px;
+    width:80%;
+    max-width:320px;
+    padding:15px;
     border:none;
-    border-radius:10px;
+    border-radius:12px;
     text-align:center;
+    font-size:16px;
     outline:none;
 }
 
 button{
-    padding:12px 25px;
+    width:80%;
+    max-width:320px;
+    padding:15px;
     border:none;
-    border-radius:10px;
-    background:#00ff88;
-    cursor:pointer;
+    border-radius:12px;
+    font-size:16px;
     font-weight:bold;
+    cursor:pointer;
 }
 
-/* HEADER */
-h1{
-    margin-top:20px;
-    letter-spacing:3px;
-    color:#00ffcc;
+/* LOGIN BUTTON COLOR */
+#loginBtn{
+    background:linear-gradient(90deg,#00b4d8,#0077b6);
+    color:white;
+}
+
+/* ERROR MESSAGE */
+#message{
+    margin-top:10px;
+    color:#ff4d6d;
 }
 
 /* APP */
 #app{
     display:none;
-    padding-top:30px;
+    min-height:100vh;
+    text-align:center;
+    padding:20px;
+}
+
+/* TITLE */
+h1{
+    color:#00b4d8;
+    letter-spacing:3px;
+    font-size:26px;
 }
 
 /* BIG SMALL */
 #result{
-    font-size:110px;
+    font-size:120px;
     font-weight:bold;
     margin-top:40px;
-    text-shadow:0 0 25px #00ff88;
-    animation: glow 1s infinite alternate;
+    color:#ffd60a;
+    text-shadow:0 0 20px #00b4d8;
+    animation:glow 1s infinite alternate;
 }
 
 @keyframes glow{
-    from{transform:scale(0.95);opacity:0.5;}
+    from{transform:scale(0.95);opacity:0.6;}
     to{transform:scale(1.05);opacity:1;}
 }
 
 /* TIMER */
 #timer{
-    font-size:50px;
+    font-size:55px;
     margin-top:10px;
-    color:#00ffcc;
+    color:#00b4d8;
 }
 
-/* BUTTONS */
+/* BUTTON BAR */
 .tabs{
     position:fixed;
     bottom:0;
@@ -87,12 +116,22 @@ h1{
 
 .tabs button{
     flex:1;
-    border-radius:0;
+    padding:18px;
+    border:none;
     font-size:16px;
+    font-weight:bold;
 }
 
-#message{
-    color:#ff4444;
+/* AI BUTTON */
+#aiBtn{
+    background:#0077b6;
+    color:white;
+}
+
+/* GAME BUTTON */
+#gameBtn{
+    background:#ffd60a;
+    color:#000;
 }
 </style>
 </head>
@@ -101,11 +140,11 @@ h1{
 
 <!-- LOGIN -->
 <div id="loginBox">
-    <h2>LOGIN</h2>
+    <h2>AI SYSTEM LOGIN</h2>
 
     <input id="password" type="password" placeholder="Enter Password">
 
-    <button onclick="login()">LOGIN</button>
+    <button id="loginBtn" onclick="login()">LOGIN</button>
 
     <div id="message"></div>
 </div>
@@ -113,17 +152,17 @@ h1{
 <!-- APP -->
 <div id="app">
 
-    <h1>AI SYSTEM</h1>
+    <h1>AI SYSTEM DASHBOARD</h1>
 
     <div id="result">---</div>
 
     <div id="timer">30</div>
 
-    <p>RANDOM SIMULATION ENGINE</p>
+    <p>REAL TIME SIMULATION</p>
 
     <div class="tabs">
-        <button onclick="openAI()">AI</button>
-        <button onclick="openGame()">GAME</button>
+        <button id="aiBtn" onclick="openAI()">AI</button>
+        <button id="gameBtn" onclick="openGame()">GAME</button>
     </div>
 
 </div>
@@ -158,15 +197,15 @@ function login(){
     }
 }
 
-/* RANDOM BIG SMALL */
-function getRandom(){
+/* RANDOM */
+function randomResult(){
     return Math.random() < 0.5 ? "BIG" : "SMALL";
 }
 
-/* MAIN SYSTEM */
+/* SYSTEM */
 function startSystem(){
 
-    document.getElementById("result").innerText = getRandom();
+    document.getElementById("result").innerText = randomResult();
 
     setInterval(()=>{
 
@@ -176,18 +215,18 @@ function startSystem(){
 
         if(countdown <= 0){
             countdown = 30;
-            document.getElementById("result").innerText = getRandom();
+            document.getElementById("result").innerText = randomResult();
         }
 
     },1000);
 }
 
-/* AI BUTTON */
+/* AI */
 function openAI(){
     window.scrollTo({top:0,behavior:"smooth"});
 }
 
-/* GAME BUTTON */
+/* GAME */
 function openGame(){
     window.open(
         "https://hgnice.bet/#/register?invitationCode=531211974484",
