@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Premium App</title>
+<title>Login Fix</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -10,22 +10,21 @@
 
 <div id="loginBox">
     <h2>LOGIN</h2>
+
     <input id="pass" type="password" placeholder="Password">
+
+    <!-- IMPORTANT: onclick আছে -->
     <button onclick="login()">LOGIN</button>
 </div>
 
 <div id="app">
-
-    <h3 id="timeBox">TIME</h3>
-
+    <h3 id="timeBox"></h3>
     <div id="value">---</div>
 
-    <button class="btn" onclick="openSite()">
-        OPEN SITE
-    </button>
-
+    <button onclick="openSite()">OPEN SITE</button>
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
