@@ -1,30 +1,165 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="bn">
 <head>
 <meta charset="UTF-8">
-<title>Login Fix</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Dashboard</title><style>
+body{
+    margin:0;
+    background:#0b0b0b;
+    color:#fff;
+    font-family:Arial,sans-serif;
+}
 
-<body>
+#loginBox{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+}
 
-<div id="loginBox">
-    <h2>LOGIN</h2>
+#app{
+    display:none;
+    min-height:100vh;
+    text-align:center;
+    padding:20px;
+}
 
-    <input id="pass" type="password" placeholder="Password">
+input{
+    padding:12px;
+    width:240px;
+    border:none;
+    border-radius:8px;
+}
 
-    <!-- IMPORTANT: onclick আছে -->
-    <button onclick="login()">LOGIN</button>
+button{
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+#result{
+    font-size:60px;
+    font-weight:bold;
+    margin-top:30px;
+}
+
+#timer{
+    font-size:40px;
+    margin-top:15px;
+}
+
+.tabs{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    display:flex;
+}
+
+.tabs button{
+    flex:1;
+    border-radius:0;
+}
+
+#message{
+    margin-top:10px;
+}
+</style></head><body><div id="loginBox">
+    <h2>LOGIN</h2><input id="password" type="password" placeholder="Password">
+
+<button onclick="login()">LOGIN</button>
+
+<div id="message"></div>
+
+</div><div id="app"><h2>DEMO DASHBOARD</h2>
+
+<div id="result">BIG</div>
+
+<div id="timer">30</div>
+
+<p>Random Demo Simulation</p>
+
+<div class="tabs">
+    <button onclick="showAI()">AI</button>
+
+    <button onclick="openGame()">GAME</button>
 </div>
 
-<div id="app">
-    <h3 id="timeBox"></h3>
-    <div id="value">---</div>
+</div><script>
+const PASSWORD = "MEHEDIVAI115";
 
-    <button onclick="openSite()">OPEN SITE</button>
-</div>
+let countdown = 30;
 
-<script src="script.js"></script>
+function login(){
 
-</body>
-</html>
+    const value =
+        document.getElementById("password").value;
+
+    const message =
+        document.getElementById("message");
+
+    if(value === PASSWORD){
+
+        message.innerText = "সঠিক পাসওয়ার্ড";
+
+        document.getElementById("loginBox").style.display="none";
+        document.getElementById("app").style.display="block";
+
+        startDemo();
+
+    }else{
+
+        message.innerText = "পাসওয়ার্ড ভুল মামা";
+    }
+}
+
+function randomResult(){
+
+    return Math.random() < 0.5
+        ? "BIG"
+        : "SMALL";
+}
+
+function startDemo(){
+
+    document.getElementById("result").innerText =
+        randomResult();
+
+    setInterval(()=>{
+
+        countdown--;
+
+        document.getElementById("timer").innerText =
+            countdown;
+
+        if(countdown <= 0){
+
+            countdown = 30;
+
+            document.getElementById("result").innerText =
+                randomResult();
+        }
+
+    },1000);
+}
+
+function showAI(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+function openGame(){
+
+    window.open(
+        "https://hgnice.bet/#/register?invitationCode=531211974484",
+        "_blank"
+    );
+}
+</script></body>
+                      </html>
