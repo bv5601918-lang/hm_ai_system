@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Big Small Box</title>
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Dashboard</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="timer">30</div>
+<!-- LOGIN -->
+<div id="login">
+    <h3>ENTER PASSWORD</h3>
+    <input type="password" id="pass" placeholder="Password">
+    <button onclick="login()">LOGIN</button>
+</div>
 
-<div id="box">READY</div>
+<!-- DASHBOARD -->
+<div id="app" style="display:none;">
+
+    <div id="timeBox">SYNCING TIME...</div>
+
+    <div id="card">
+        <div id="title">NEON DASHBOARD</div>
+
+        <div id="box">
+            <span id="value">READY</span>
+        </div>
+
+        <button onclick="openSite()">OPEN LINK</button>
+    </div>
+
+</div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
