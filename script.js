@@ -1,38 +1,66 @@
-const box = document.getElementById("box");
-const timer = document.getElementById("timer");
+const PASSWORD = "@MEHEDIVAI115";
 
-let timeLeft = 30;
+// 👉 তোমার লিংক এখানে সেট করা আছে
+const TARGET_LINK = "https://hgnice.bet/#/register?invitationCode=531211974484";
 
-// change BIG/SMALL
-function changeText(){
+const pass = document.getElementById("pass");
+const loginBox = document.getElementById("login");
+const app = document.getElementById("app");
 
-    let r = Math.random();
+const timeBox = document.getElementById("timeBox");
+const valueBox = document.getElementById("value");
 
-    if(r < 0.5){
-        box.innerText = "BIG";
-        box.style.background = "#00ff88";
-    } else {
-        box.innerText = "SMALL";
-        box.style.background = "#ff3333";
+let offset = 0;
+
+/* LOGIN */
+function login(){
+    if(pass.value === PASSWORD){
+        loginBox.style.display = "none";
+        app.style.display = "block";
+        start();
+    }else{
+        alert("WRONG PASSWORD");
     }
 }
 
-// timer update
-function updateTimer(){
+/* REAL SERVER TIME */
+async function syncTime(){
+    try{
+        let res = await fetch("https://worldtimeapi.org/api/timezone/Asia/Dhaka");
+        let data = await res.json();
 
-    timeLeft--;
+        offset = new Date(data.datetime).getTime() - Date.now();
 
-    timer.innerText = timeLeft;
-
-    if(timeLeft === 0){
-        changeText();
-        timeLeft = 30; // reset timer
+    }catch(e){
+        console.log("time sync error");
     }
 }
 
-// first run
-changeText();
-timer.innerText = timeLeft;
+/* GET SYNC TIME */
+function now(){
+    return new Date(Date.now() + offset);
+}
 
-// every 1 second timer run
-setInterval(updateTimer, 1000);
+/* UPDATE UI */
+function update(){
+
+    let t = now();
+    timeBox.innerText = "SERVER: " + t.toLocaleTimeString();
+
+    let sec = t.getSeconds();
+
+    if(sec === 0 || sec === 30){
+        valueBox.innerText = Math.random() > 0.5 ? "BIG" : "SMALL";
+    }
+}
+
+/* OPEN LINK */
+function openSite(){
+    window.open(TARGET_LINK, "_blank");
+}
+
+/* START */
+async function start(){
+    await syncTime();
+    setInterval(update, 1000);
+}
