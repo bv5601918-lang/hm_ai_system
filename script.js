@@ -1,49 +1,19 @@
-const PASSWORD = "12345";
+const box = document.getElementById("box");
 
-function login(){
+function changeText(){
 
-    let p = document.getElementById("pass").value;
+    let random = Math.random();
 
-    if(p === PASSWORD){
-
-        document.getElementById("login").style.display = "none";
-        document.getElementById("terminal").style.display = "block";
-
-        startHackEffect();
-
+    if(random > 0.5){
+        box.innerText = "BIG";
     } else {
-        document.getElementById("msg").innerText = "ACCESS DENIED!";
+        box.innerText = "SMALL";
     }
+
 }
 
-function startHackEffect(){
+// প্রথমে একবার চালাবে
+changeText();
 
-    let log = document.getElementById("log");
-    let box = document.getElementById("box");
-
-    let messages = [
-        "Connecting to server...",
-        "Bypassing firewall...",
-        "Access granted...",
-        "Injecting module...",
-        "System unstable...",
-        "Loading interface..."
-    ];
-
-    let i = 0;
-
-    setInterval(()=>{
-
-        // terminal text effect
-        if(i < messages.length){
-            log.innerHTML += messages[i] + "<br>";
-            i++;
-        }
-
-        // size change effect
-        let size = Math.floor(Math.random()*250)+80;
-        box.style.width = size + "px";
-        box.style.height = size + "px";
-
-    }, 1500);
-                }
+// তারপর প্রতি 30 সেকেন্ডে বদলাবে
+setInterval(changeText, 30000);
