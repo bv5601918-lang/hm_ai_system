@@ -1,32 +1,60 @@
 body{
     margin:0;
     height:100vh;
-    background:#111;
-    font-family: Arial;
+    background:#050505;
+    font-family:Arial;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
-    gap:20px;
+    color:#00ff66;
 }
 
-/* TIMER */
-#timer{
-    color:#00ff88;
-    font-size:20px;
+/* LOGIN */
+#login{
+    text-align:center;
 }
 
-/* SMALL BOX */
+input{
+    padding:10px;
+    background:black;
+    border:1px solid #00ff66;
+    color:#00ff66;
+}
+
+button{
+    margin-top:10px;
+    padding:10px 20px;
+    background:#00ff66;
+    border:none;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* APP */
+#timeBox{
+    position:absolute;
+    top:10px;
+    left:10px;
+    font-size:14px;
+}
+
+#card{
+    width:220px;
+    padding:20px;
+    border:2px solid #00ff66;
+    box-shadow:0 0 15px #00ff66;
+    border-radius:12px;
+    text-align:center;
+}
+
 #box{
     width:120px;
     height:120px;
-    background:#00ff88;
-    color:#000;
+    border:2px solid #00ff66;
+    border-radius:50%;
+    margin:15px auto;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:28px;
-    font-weight:bold;
-    border-radius:10px;
-    transition:0.3s;
+    font-size:22px;
 }
