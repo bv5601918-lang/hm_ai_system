@@ -2,36 +2,165 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neon Dashboard</title>
-<link rel="stylesheet" href="style.css">
+<title>BIG SMALL SIMULATOR</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background: radial-gradient(circle at top,#111,#000);
+    color:white;
+    overflow:hidden;
+}
+
+/* LOGIN BOX */
+#login{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+input{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    outline:none;
+    width:200px;
+    text-align:center;
+}
+
+button{
+    margin-top:10px;
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    background:#00ff88;
+    cursor:pointer;
+}
+
+/* APP */
+#app{
+    display:none;
+    text-align:center;
+    padding-top:80px;
+}
+
+/* TIMER */
+#timeBox{
+    font-size:20px;
+    opacity:0.7;
+}
+
+/* BIG SMALL TEXT */
+#value{
+    font-size:80px;
+    font-weight:bold;
+    margin-top:50px;
+    transition:0.5s;
+    text-shadow:0 0 20px #00ff88;
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow{
+    from{opacity:0.4; transform:scale(0.95);}
+    to{opacity:1; transform:scale(1.05);}
+}
+
+/* BACKGROUND ANIMATION */
+.bg{
+    position:absolute;
+    width:200%;
+    height:200%;
+    background:linear-gradient(45deg,#00ff88,#0066ff,#ff00aa);
+    animation: move 10s linear infinite;
+    opacity:0.08;
+}
+
+@keyframes move{
+    0%{transform:translate(0,0);}
+    50%{transform:translate(-200px,200px);}
+    100%{transform:translate(0,0);}
+}
+</style>
 </head>
+
 <body>
+
+<div class="bg"></div>
 
 <!-- LOGIN -->
 <div id="login">
-    <h3>ENTER PASSWORD</h3>
-    <input type="password" id="pass" placeholder="Password">
+    <h2>ENTER PASSWORD</h2>
+    <input id="pass" type="password" placeholder="Password">
     <button onclick="login()">LOGIN</button>
 </div>
 
-<!-- DASHBOARD -->
-<div id="app" style="display:none;">
-
-    <div id="timeBox">SYNCING TIME...</div>
-
-    <div id="card">
-        <div id="title">NEON DASHBOARD</div>
-
-        <div id="box">
-            <span id="value">READY</span>
-        </div>
-
-        <button onclick="openSite()">OPEN LINK</button>
-    </div>
-
+<!-- APP -->
+<div id="app">
+    <div id="timeBox"></div>
+    <div id="value">---</div>
 </div>
 
-<script src="script.js"></script>
+<script>
+const PASSWORD = "MEHEDIVAI115";
+
+const pass = document.getElementById("pass");
+const loginBox = document.getElementById("login");
+const app = document.getElementById("app");
+
+const timeBox = document.getElementById("timeBox");
+const valueBox = document.getElementById("value");
+
+let offset = 0;
+
+/* LOGIN */
+function login(){
+    if(pass.value === PASSWORD){
+        loginBox.style.display = "none";
+        app.style.display = "block";
+        start();
+    }else{
+        alert("Wrong Password");
+    }
+}
+
+/* SYNC TIME */
+async function syncTime(){
+    try{
+        let res = await fetch("https://worldtimeapi.org/api/timezone/Asia/Dhaka");
+        let data = await res.json();
+        offset = new Date(data.datetime).getTime() - Date.now();
+    }catch(e){
+        console.log("time error");
+    }
+}
+
+function now(){
+    return new Date(Date.now() + offset);
+}
+
+/* MAIN LOOP */
+function update(){
+
+    let t = now();
+    timeBox.innerText = "TIME: " + t.toLocaleTimeString();
+
+    let sec = t.getSeconds();
+
+    // 30 second cycle
+    if(sec % 30 === 0){
+        valueBox.innerText = Math.random() > 0.5 ? "BIG" : "SMALL";
+    }
+}
+
+/* START */
+async function start(){
+    await syncTime();
+    setInterval(update, 1000);
+}
+</script>
+
 </body>
-</html>
+    </html>
