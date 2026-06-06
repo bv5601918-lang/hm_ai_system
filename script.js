@@ -1,13 +1,9 @@
 const box = document.getElementById("box");
+const timer = document.getElementById("timer");
 
-function flash(){
-    box.style.transform = "scale(1.2)";
+let timeLeft = 30;
 
-    setTimeout(()=>{
-        box.style.transform = "scale(1)";
-    }, 200);
-}
-
+// change BIG/SMALL
 function changeText(){
 
     let r = Math.random();
@@ -19,12 +15,24 @@ function changeText(){
         box.innerText = "SMALL";
         box.style.background = "#ff3333";
     }
-
-    flash();
 }
 
-// প্রথমবার চালাবে
-changeText();
+// timer update
+function updateTimer(){
 
-// 🔥 প্রতি ৩০ সেকেন্ডে পরিবর্তন
-setInterval(changeText, 30000);
+    timeLeft--;
+
+    timer.innerText = timeLeft;
+
+    if(timeLeft === 0){
+        changeText();
+        timeLeft = 30; // reset timer
+    }
+}
+
+// first run
+changeText();
+timer.innerText = timeLeft;
+
+// every 1 second timer run
+setInterval(updateTimer, 1000);
