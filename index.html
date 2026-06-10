@@ -81,18 +81,21 @@ button{
     padding:20px;
 }
 
-/* MENU BUTTONS */
+/* MENU (FIXED BOTTOM) */
 #menu{
-    margin-top:20px;
+    position:fixed;
+    bottom:20px;
+    left:0;
+    width:100%;
     display:flex;
-    flex-direction:column;
-    gap:15px;
-    align-items:center;
+    justify-content:space-around;
+    padding:0 10px;
 }
 
+/* BUTTON STYLE */
 #menu button{
-    width:80%;
-    max-width:300px;
+    width:45%;
+    max-width:180px;
     padding:15px;
     border:none;
     border-radius:12px;
@@ -192,14 +195,6 @@ iframe{
 <!-- APP -->
 <div id="app">
 
-    <div id="menu">
-
-        <button id="aiBtn" onclick="showAI()">🤖 AI SYSTEM</button>
-
-        <button id="webBtn" onclick="showSite()">🌐 WEBSITE</button>
-
-    </div>
-
     <!-- AI SECTION -->
     <div id="aiBox">
 
@@ -217,6 +212,15 @@ iframe{
     <!-- WEBSITE SECTION -->
     <div id="siteBox">
         <iframe src="https://hgnice.bet/#/register?invitationCode=531211974484"></iframe>
+    </div>
+
+    <!-- MENU (BOTTOM FIXED) -->
+    <div id="menu">
+
+        <button id="aiBtn" onclick="showAI()">🤖 AI SYSTEM</button>
+
+        <button id="webBtn" onclick="showSite()">🌐 WEBSITE</button>
+
     </div>
 
 </div>
@@ -240,7 +244,7 @@ function login(){
         document.getElementById("loginBox").style.display="none";
         document.getElementById("app").style.display="block";
 
-        showAI(); // default open AI
+        showAI();
 
         if(!started){
             started=true;
@@ -255,18 +259,14 @@ function login(){
 
 /* SHOW AI */
 function showAI(){
-
     document.getElementById("aiBox").style.display="block";
     document.getElementById("siteBox").style.display="none";
-
 }
 
 /* SHOW SITE */
 function showSite(){
-
     document.getElementById("aiBox").style.display="none";
     document.getElementById("siteBox").style.display="block";
-
 }
 
 /* SYSTEM */
