@@ -194,7 +194,7 @@ button{
 
 <!-- FLOATING WIDGET (সবসময় দৃশ্যমান z-index:9999) -->
 <div id="floatWidget">
-    <div class="fw-title">RAJ RTB AI</div>
+    <div class="fw-title">⫷𝑅⫸⫷𝑇⫸⫷𝑀⫸RAJ RTB AI</div>
     <div class="fw-result" id="fw-result">---</div>
     <div class="fw-nums" id="fw-nums"></div>
     <div class="fw-timer" id="fw-timer">⏱ 30s</div>
@@ -262,7 +262,7 @@ function closeWebsite(){
 })();
 
 /* HELPERS */
-function getType(){ return Math.random()<0.5?"BIG":"SMALL"; }
+function getType(){ return Math.random()<0.5?"SMALL":"BIG"; }
 
 function getNumbers(type){
     let bigNums  = [5,6,7,8,9];
@@ -286,7 +286,7 @@ function startSystem(){
 /* UPDATE */
 function update(){
     let type = getType();
-    if(type===lastType) type = type==="BIG"?"SMALL":"BIG";
+    if(type===lastType) type = type==="BIG"?"SMALL":"SMALL";
     lastType = type;
     const nums = getNumbers(type);
 
@@ -299,7 +299,7 @@ function update(){
 
 /* LOGS */
 function startLogs(){
-    const logs=["mehedi ai system...","raj ai system...","system running...","ai engine online...","2 step ai hack..."];
+    const logs=["⫷𝑅⫸⫷𝑇⫸⫷𝑀⫸mehedi ai system...","raj ai system...","system running...","ai engine online...","2 step ai hack..."];
     setInterval(()=>{
         document.getElementById("logs").innerText = logs[Math.floor(Math.random()*logs.length)];
     },900);
